@@ -9,7 +9,7 @@ namespace L02_BlackmailerCompanion {
     function handleLoad(_event: Event): void {
         let mail: HTMLElement = <HTMLElement>document.querySelector("div#mail");
         let letters: HTMLElement = <HTMLElement>document.querySelector("div#letters");
-        mail.addEventListener("click", placeLetter);
+        mail.addEventListener("click", chooseOption);
         document.addEventListener("keydown", chooseCharacter);
         let left: number = 20;
         let top: number = 2;
@@ -24,6 +24,7 @@ namespace L02_BlackmailerCompanion {
         }
 
     }
+
 
 
     //auf click von brief warten und if abfrage ob target hintergrund oder buchstabe ist. Je nach dem place oder delete letter
@@ -43,7 +44,7 @@ namespace L02_BlackmailerCompanion {
         // option2: if (_event.currentTarget === _event.target) {
         if (highlightedElement) {
             highlightedElement.style.width = 55 + "px";
-            highlightedElement.style.height = 100 + "px";
+            highlightedElement.style.height = 80 + "px";
         }
         let x: number = _event.offsetX;
         let y: number = _event.offsetY;
@@ -55,14 +56,20 @@ namespace L02_BlackmailerCompanion {
         letter.textContent = chosenCharacter;
         letter.style.left = x + "px";
         letter.style.top = y + "px";
-        letter.addEventListener("click", deleteLetter);
+        letter.addEventListener("click", chooseOption);
         //}
     }
 
     function chooseCharacter(_event: KeyboardEvent): void {
         chosenCharacter = _event.key;
     }
-
+    function chooseOption(_event: MouseEvent): void {
+        if (_event.currentTarget === _event.target) {
+            placeLetter(_event);
+        } else {
+            deleteLetter(_event);
+        }
+    }
 
     function deleteLetter(_event: MouseEvent): void {
         let target: Node = <Node>_event.target;

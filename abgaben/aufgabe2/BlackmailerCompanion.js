@@ -10,7 +10,7 @@ var L02_BlackmailerCompanion;
     function handleLoad(_event) {
         let mail = document.querySelector("div#mail");
         let letters = document.querySelector("div#letters");
-        mail.addEventListener("click", placeLetter);
+        mail.addEventListener("click", chooseOption);
         document.addEventListener("keydown", chooseCharacter);
         let left = 20;
         let top = 2;
@@ -39,7 +39,7 @@ var L02_BlackmailerCompanion;
         // option2: if (_event.currentTarget === _event.target) {
         if (highlightedElement) {
             highlightedElement.style.width = 55 + "px";
-            highlightedElement.style.height = 100 + "px";
+            highlightedElement.style.height = 80 + "px";
         }
         let x = _event.offsetX;
         let y = _event.offsetY;
@@ -49,11 +49,19 @@ var L02_BlackmailerCompanion;
         letter.textContent = chosenCharacter;
         letter.style.left = x + "px";
         letter.style.top = y + "px";
-        letter.addEventListener("click", deleteLetter);
+        letter.addEventListener("click", chooseOption);
         //}
     }
     function chooseCharacter(_event) {
         chosenCharacter = _event.key;
+    }
+    function chooseOption(_event) {
+        if (_event.currentTarget === _event.target) {
+            placeLetter(_event);
+        }
+        else {
+            deleteLetter(_event);
+        }
     }
     function deleteLetter(_event) {
         let target = _event.target;
