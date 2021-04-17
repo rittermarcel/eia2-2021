@@ -1,0 +1,26 @@
+#div0 {
+    border: thin solid black;
+    background-color: beige;
+    position: absolute;
+    width: 45%;
+    height:500px;
+    top: 100px;
+    left: 2%;
+}
+#div1 {
+    border: thin solid black;
+    background-color: beige;
+    position: absolute;
+    width: 45%;
+    height:500px;
+    top: 100px;
+    left: 53%;
+}
+span {
+    border: thin solid black;
+    background-color: brown;
+    position: fixed;
+    width: 180px;
+    height:100px;
+    font-size: 18px;
+}
