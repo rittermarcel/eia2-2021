@@ -1,0 +1,30 @@
+#startGame {
+    position: relative;
+    left:43%;
+    width:280px;
+    height:80px;
+    background-color: lightskyblue;
+}
+#game {
+    width:80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    height:700px;
+    background-color: rgb(233, 185, 166);
+    
+
+}
+#cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+span {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: brown;
+    position:relative;
+    margin-left: 20px;
+    margin-right: 20px;
+    font-size: 10em;
+}
