@@ -1,0 +1,28 @@
+html {
+    background-color: burlywood;
+}
+canvas {
+    position: relative;
+    width: 70%;
+    height: 800px;
+    background-color:lightcyan;
+    left:15%;
+    border-style: solid;
+    border-color: brown;
+}
+
+  button {
+      position: relative;
+      color:black;
+      width: 200px;
+      height:50px;
+      margin-top: 40px;
+      margin-bottom: 40px;
+      background-color: #98ff98;
+      cursor: pointer;
+  }
+  .button {
+      text-align: center;
+
+  }
+  
