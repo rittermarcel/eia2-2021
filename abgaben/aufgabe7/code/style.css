@@ -1,0 +1,7 @@
+canvas {
+    position: absolute;
+    left:5%;
+    border-style: solid;
+    border-color: brown;
+    width:90%;
+}
