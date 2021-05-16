@@ -16,9 +16,9 @@ namespace blumenwiese {
         let horizon: number = crc2.canvas.height * 0.5;
 
         drawBackground();
-        drawCloud({ x: 270, y: 90 }, { x: 100, y: 50 });
+        drawCloud({ x: 570, y: 90 }, { x: 100, y: 50 });
         drawMountains({ x: 0, y: horizon }, 90, 150, "grey", "white");
-        drawTrees(5, { x: 10, y: horizon });
+        drawTrees(15, { x: 10, y: horizon });
         drawFlower1({ x: 0, y: 400 }, "yellow");
         drawFlower2({ x: 10, y: 450 }, "purple");
     }
