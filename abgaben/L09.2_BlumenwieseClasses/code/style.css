@@ -1,0 +1,8 @@
+canvas {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    border-style: solid;
+    border-color: brown;
+}
