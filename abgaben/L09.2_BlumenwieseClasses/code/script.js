@@ -11,25 +11,43 @@ var aufgabe9BlumenwieseAnimiert;
         if (!canvas)
             return;
         aufgabe9BlumenwieseAnimiert.crc2 = canvas.getContext("2d");
-        let horizon = aufgabe9BlumenwieseAnimiert.crc2.canvas.height * 0.5;
         aufgabe9BlumenwieseAnimiert.drawBackground();
-        let mountains = new aufgabe9BlumenwieseAnimiert.Mountains(new aufgabe9BlumenwieseAnimiert.Vector(0, horizon), 90, 150, "grey", "white");
-        mountains.drawMountains();
-        let trees = new aufgabe9BlumenwieseAnimiert.Trees(15, new aufgabe9BlumenwieseAnimiert.Vector(10, horizon));
-        trees.drawTrees();
+        createMountains();
         createClouds(1);
-        let flower1 = new aufgabe9BlumenwieseAnimiert.Flower(new aufgabe9BlumenwieseAnimiert.Vector(0, 470), "yellow");
-        let flower2 = new aufgabe9BlumenwieseAnimiert.Flower(new aufgabe9BlumenwieseAnimiert.Vector(10, 520), "purple");
-        flower1.drawFlower1();
-        flower2.drawFlower2();
+        createTrees(15);
         createBienen(3);
+        createFlower1(30);
+        createFlower2(30);
         imgData = aufgabe9BlumenwieseAnimiert.crc2.getImageData(0, 0, aufgabe9BlumenwieseAnimiert.crc2.canvas.width, aufgabe9BlumenwieseAnimiert.crc2.canvas.height);
         window.setInterval(update, 20);
+    }
+    function createMountains() {
+        let horizon = aufgabe9BlumenwieseAnimiert.crc2.canvas.height * 0.5;
+        let mountains = new aufgabe9BlumenwieseAnimiert.Mountains(new aufgabe9BlumenwieseAnimiert.Vector(0, horizon), 90, 150, "grey", "white");
+        mountains.drawMountains();
     }
     function createBienen(anzahlBienen) {
         for (let i = 0; i < anzahlBienen; i++) {
             let biene = new aufgabe9BlumenwieseAnimiert.Bienen();
             bienen.push(biene);
+        }
+    }
+    function createTrees(anzahlTrees) {
+        for (let i = 0; i < anzahlTrees; i++) {
+            let trees = new aufgabe9BlumenwieseAnimiert.Trees();
+            trees.drawTrees();
+        }
+    }
+    function createFlower1(anzahlFlower) {
+        for (let i = 0; i < anzahlFlower; i++) {
+            let flower1 = new aufgabe9BlumenwieseAnimiert.Flower("yellow");
+            flower1.drawFlower1();
+        }
+    }
+    function createFlower2(anzahlFlower) {
+        for (let i = 0; i < anzahlFlower; i++) {
+            let flower1 = new aufgabe9BlumenwieseAnimiert.Flower("purple");
+            flower1.drawFlower2();
         }
     }
     function createClouds(anzahlClouds) {

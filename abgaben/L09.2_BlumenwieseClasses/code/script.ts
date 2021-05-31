@@ -12,28 +12,46 @@ namespace aufgabe9BlumenwieseAnimiert {
         if (!canvas)
             return;
         crc2 = <CanvasRenderingContext2D>canvas.getContext("2d");
-        let horizon: number = crc2.canvas.height * 0.5;
         drawBackground();
-        let mountains: Mountains = new Mountains(new Vector(0, horizon), 90, 150, "grey", "white");
-        mountains.drawMountains();
-        let trees: Trees = new Trees(15, new Vector(10, horizon));
-        trees.drawTrees();
+        createMountains();
         createClouds(1);
-        let flower1: Flower = new Flower(new Vector(0, 470), "yellow");
-        let flower2: Flower = new Flower(new Vector(10, 520), "purple");
-        flower1.drawFlower1();
-        flower2.drawFlower2();
+        createTrees(15);
         createBienen(3);
+        createFlower1(30);
+        createFlower2(30);
 
         imgData = crc2.getImageData(0, 0, crc2.canvas.width, crc2.canvas.height);
         window.setInterval(update, 20);
     }
 
-
+    function createMountains(): void {
+        let horizon: number = crc2.canvas.height * 0.5;
+        let mountains: Mountains = new Mountains(new Vector(0, horizon), 90, 150, "grey", "white");
+        mountains.drawMountains();
+    }
     function createBienen(anzahlBienen: number): void {
         for (let i: number = 0; i < anzahlBienen; i++) {
             let biene: Bienen = new Bienen();
             bienen.push(biene);
+        }
+    }
+    function createTrees(anzahlTrees: number): void {
+        for (let i: number = 0; i < anzahlTrees; i++) {
+            let trees: Trees = new Trees();
+            trees.drawTrees();
+        }
+    }
+
+    function createFlower1(anzahlFlower: number): void {
+        for (let i: number = 0; i < anzahlFlower; i++) {
+            let flower1: Flower = new Flower("yellow");
+            flower1.drawFlower1();
+        }
+    }
+    function createFlower2(anzahlFlower: number): void {
+        for (let i: number = 0; i < anzahlFlower; i++) {
+            let flower1: Flower = new Flower("purple");
+            flower1.drawFlower2();
         }
     }
     function createClouds(anzahlClouds: number): void {

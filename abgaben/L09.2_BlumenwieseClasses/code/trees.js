@@ -2,35 +2,30 @@
 var aufgabe9BlumenwieseAnimiert;
 (function (aufgabe9BlumenwieseAnimiert) {
     class Trees {
-        constructor(_numberTrees, _position) {
-            this.numberTrees = _numberTrees;
-            this.position = _position;
-        }
         drawTrees() {
-            let x = this.position.x;
+            let x = (Math.random() * aufgabe9BlumenwieseAnimiert.crc2.canvas.width) + 5;
+            let horizon = aufgabe9BlumenwieseAnimiert.crc2.canvas.height * 0.5;
             let nParticles = 40;
             let maxRadius = 15;
             let branch = new Path2D();
-            for (let y = 0; y < this.numberTrees; y++) {
-                let yDifference = -(Math.random() * 20);
-                let abstand = (Math.random() * 50) + 40;
+            let yDifference = -(Math.random() * 20);
+            let abstand = (Math.random() * 50) + 40;
+            aufgabe9BlumenwieseAnimiert.crc2.save();
+            aufgabe9BlumenwieseAnimiert.crc2.translate(x, horizon + yDifference);
+            aufgabe9BlumenwieseAnimiert.crc2.fillStyle = "brown";
+            aufgabe9BlumenwieseAnimiert.crc2.fillRect(0, 0, 10, 40);
+            aufgabe9BlumenwieseAnimiert.crc2.restore();
+            x = x + abstand;
+            for (let i = 0; i < nParticles; i++) {
+                let sizeY = -(Math.random() * 60);
+                let xPosition = (Math.random()) * 10;
+                let yPosition = -(Math.random() * sizeY);
                 aufgabe9BlumenwieseAnimiert.crc2.save();
-                aufgabe9BlumenwieseAnimiert.crc2.translate(x, this.position.y + yDifference);
-                aufgabe9BlumenwieseAnimiert.crc2.fillStyle = "brown";
-                aufgabe9BlumenwieseAnimiert.crc2.fillRect(0, 0, 10, 40);
+                branch.arc(0, 0, maxRadius, 0, 2 * Math.PI);
+                aufgabe9BlumenwieseAnimiert.crc2.fillStyle = "green";
+                aufgabe9BlumenwieseAnimiert.crc2.translate(x + xPosition - abstand, horizon - maxRadius - yPosition);
+                aufgabe9BlumenwieseAnimiert.crc2.fill(branch);
                 aufgabe9BlumenwieseAnimiert.crc2.restore();
-                x = x + abstand;
-                for (let i = 0; i < nParticles; i++) {
-                    let sizeY = -(Math.random() * 60);
-                    let xPosition = (Math.random()) * 10;
-                    let yPosition = -(Math.random() * sizeY);
-                    aufgabe9BlumenwieseAnimiert.crc2.save();
-                    branch.arc(0, 0, maxRadius, 0, 2 * Math.PI);
-                    aufgabe9BlumenwieseAnimiert.crc2.fillStyle = "green";
-                    aufgabe9BlumenwieseAnimiert.crc2.translate(x + xPosition - abstand, this.position.y - maxRadius - yPosition);
-                    aufgabe9BlumenwieseAnimiert.crc2.fill(branch);
-                    aufgabe9BlumenwieseAnimiert.crc2.restore();
-                }
             }
         }
     }
