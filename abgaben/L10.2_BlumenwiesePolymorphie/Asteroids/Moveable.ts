@@ -1,32 +1,38 @@
-namespace BlumenwiesePolymorphie {
+namespace L10_AsteroidsInheritance {
     export class Moveable {
         position: Vector;
         velocity: Vector;
+        expendable: boolean = false;
 
         constructor(_position?: Vector) {
+            // console.log("Moveable constructor");
+
             if (_position)
-                this.position = _position;
+                this.position = _position.copy();
             else
                 this.position = new Vector(0, 0);
 
             this.velocity = new Vector(0, 0);
-            this.velocity.random(200, 380);
         }
+
         move(_timeslice: number): void {
-            let offset: Vector = new Vector(this.velocity.x, 90);
+            // console.log("Moveable move");
+            let offset: Vector = this.velocity.copy();
             offset.scale(_timeslice);
             this.position.add(offset);
 
             if (this.position.x < 0)
                 this.position.x += crc2.canvas.width;
+            if (this.position.y < 0)
+                this.position.y += crc2.canvas.height;
             if (this.position.x > crc2.canvas.width)
                 this.position.x -= crc2.canvas.width;
+            if (this.position.y > crc2.canvas.height)
+                this.position.y -= crc2.canvas.height;
         }
+
         draw(): void {
             // console.log("Moveable move");
         }
     }
-
-
-
 }

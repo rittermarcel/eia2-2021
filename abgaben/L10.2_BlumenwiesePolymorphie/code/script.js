@@ -2,7 +2,7 @@
 var BlumenwiesePolymorphie;
 (function (BlumenwiesePolymorphie) {
     window.addEventListener("load", handleLoad);
-    let bienen = [];
+    let moveables = [];
     let clouds = [];
     let imgData;
     function handleLoad(_event) {
@@ -29,7 +29,7 @@ var BlumenwiesePolymorphie;
     function createBienen(anzahlBienen) {
         for (let i = 0; i < anzahlBienen; i++) {
             let biene = new BlumenwiesePolymorphie.Bienen();
-            bienen.push(biene);
+            moveables.push(biene);
         }
     }
     function createTrees(anzahlTrees) {
@@ -59,9 +59,9 @@ var BlumenwiesePolymorphie;
     function update() {
         console.log("Update");
         BlumenwiesePolymorphie.crc2.putImageData(imgData, 0, 0);
-        for (let biene of bienen) {
+        for (let biene of moveables) {
             biene.move(1 / 100);
-            biene.drawBiene();
+            biene.draw();
         }
         for (let cloud of clouds) {
             cloud.move(1 / 50);

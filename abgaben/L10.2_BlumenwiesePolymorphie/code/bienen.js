@@ -1,14 +1,15 @@
 "use strict";
 var BlumenwiesePolymorphie;
 (function (BlumenwiesePolymorphie) {
-    class Bienen {
-        constructor() {
-            console.log("parameter übergeben");
-            this.position = new BlumenwiesePolymorphie.Vector(BlumenwiesePolymorphie.crc2.canvas.width, 380);
-            this.velocity = new BlumenwiesePolymorphie.Vector(0, 0);
-            this.velocity.random(200, 380);
+    class Bienen extends BlumenwiesePolymorphie.Moveable {
+        constructor(_position) {
+            super(_position);
+            if (_position)
+                this.position = _position;
+            else
+                this.position = new BlumenwiesePolymorphie.Vector(BlumenwiesePolymorphie.crc2.canvas.width, 380);
         }
-        drawBiene() {
+        draw() {
             //let randomX: number = (Math.random() * crc2.canvas.width) + 10;
             BlumenwiesePolymorphie.crc2.beginPath();
             let gradient = BlumenwiesePolymorphie.crc2.createLinearGradient(0, 0, 20, 0);
@@ -36,17 +37,6 @@ var BlumenwiesePolymorphie;
             BlumenwiesePolymorphie.crc2.stroke();
             BlumenwiesePolymorphie.crc2.closePath();
             BlumenwiesePolymorphie.crc2.restore();
-        }
-        move(_timeslice) {
-            console.log("move");
-            let offset = new BlumenwiesePolymorphie.Vector(this.velocity.x, 380);
-            offset.scale(_timeslice);
-            this.position.add(offset);
-            if (this.position.x < 0)
-                this.position.x += BlumenwiesePolymorphie.crc2.canvas.width;
-            if (this.position.x > BlumenwiesePolymorphie.crc2.canvas.width)
-                this.position.x -= BlumenwiesePolymorphie.crc2.canvas.width;
-            console.log(this.position);
         }
     }
     BlumenwiesePolymorphie.Bienen = Bienen;

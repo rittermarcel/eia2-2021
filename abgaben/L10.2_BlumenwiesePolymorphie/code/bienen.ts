@@ -1,16 +1,16 @@
 namespace BlumenwiesePolymorphie {
-    export class Bienen {
-        velocity: Vector;
-        position: Vector;
+    export class Bienen extends Moveable {
 
-        constructor() {
-            console.log("parameter übergeben");
-            this.position = new Vector(crc2.canvas.width, 380);
-            this.velocity = new Vector(0, 0);
-            this.velocity.random(200, 380);
+
+        constructor(_position?: Vector) {
+            super(_position);
+            if (_position)
+                this.position = _position;
+            else
+                this.position = new Vector(crc2.canvas.width, 380);
 
         }
-        drawBiene(): void {
+        draw(): void {
 
             //let randomX: number = (Math.random() * crc2.canvas.width) + 10;
             crc2.beginPath();
@@ -45,19 +45,6 @@ namespace BlumenwiesePolymorphie {
             crc2.restore();
 
 
-        }
-        move(_timeslice: number): void {
-            console.log("move");
-            let offset: Vector = new Vector(this.velocity.x, 380);
-            offset.scale(_timeslice);
-            this.position.add(offset);
-
-            if (this.position.x < 0)
-                this.position.x += crc2.canvas.width;
-            if (this.position.x > crc2.canvas.width)
-                this.position.x -= crc2.canvas.width;
-
-            console.log(this.position);
         }
     }
 
