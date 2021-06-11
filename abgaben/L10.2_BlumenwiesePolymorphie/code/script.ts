@@ -4,7 +4,6 @@ namespace BlumenwiesePolymorphie {
 
     export let crc2: CanvasRenderingContext2D;
     let moveables: Moveable[] = [];
-    let clouds: Cloud[] = [];
     let imgData: any;
     function handleLoad(_event: Event): void {
         console.log("start");
@@ -57,7 +56,7 @@ namespace BlumenwiesePolymorphie {
     function createClouds(anzahlClouds: number): void {
         for (let i: number = 0; i < anzahlClouds; i++) {
             let cloud: Cloud = new Cloud();
-            clouds.push(cloud);
+            moveables.push(cloud);
         }
     }
     function update(): void {
@@ -65,14 +64,11 @@ namespace BlumenwiesePolymorphie {
 
         crc2.putImageData(imgData, 0, 0);
 
-        for (let biene of moveables) {
-            biene.move(1 / 100);
-            biene.draw();
+        for (let moveable of moveables) {
+            moveable.move(1 / 100);
+            moveable.draw();
         }
-        for (let cloud of clouds) {
-            cloud.move(1 / 50);
-            cloud.drawCloud();
-        }
+       
         
         
     }

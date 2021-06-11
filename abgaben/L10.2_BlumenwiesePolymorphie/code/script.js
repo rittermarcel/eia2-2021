@@ -3,7 +3,6 @@ var BlumenwiesePolymorphie;
 (function (BlumenwiesePolymorphie) {
     window.addEventListener("load", handleLoad);
     let moveables = [];
-    let clouds = [];
     let imgData;
     function handleLoad(_event) {
         console.log("start");
@@ -53,19 +52,15 @@ var BlumenwiesePolymorphie;
     function createClouds(anzahlClouds) {
         for (let i = 0; i < anzahlClouds; i++) {
             let cloud = new BlumenwiesePolymorphie.Cloud();
-            clouds.push(cloud);
+            moveables.push(cloud);
         }
     }
     function update() {
         console.log("Update");
         BlumenwiesePolymorphie.crc2.putImageData(imgData, 0, 0);
-        for (let biene of moveables) {
-            biene.move(1 / 100);
-            biene.draw();
-        }
-        for (let cloud of clouds) {
-            cloud.move(1 / 50);
-            cloud.drawCloud();
+        for (let moveable of moveables) {
+            moveable.move(1 / 100);
+            moveable.draw();
         }
     }
 })(BlumenwiesePolymorphie || (BlumenwiesePolymorphie = {}));

@@ -1,17 +1,20 @@
 namespace BlumenwiesePolymorphie {
-    export class Cloud {
-        velocity: Vector;
-        position: Vector;
+    export class Cloud extends Moveable {
         size: Vector;
 
-        constructor() {
+        constructor(_position?: Vector) {
+            super(_position);
+            if (_position)
+                this.position = _position;
+            else
             this.position = new Vector(crc2.canvas.width, 90);
+
             this.velocity = new Vector(0, 0);
             this.velocity.random(200, 90);
             this.size = new Vector(100, 50);
         }
 
-        drawCloud(): void {
+        draw(): void {
             let particles: number = 20;
             let radiusParticle: number = 50;
             let particle: Path2D = new Path2D();
@@ -32,16 +35,6 @@ namespace BlumenwiesePolymorphie {
                 crc2.restore();
             }
             crc2.restore();
-        }
-        move(_timeslice: number): void {
-            let offset: Vector = new Vector(this.velocity.x, 90);
-            offset.scale(_timeslice);
-            this.position.add(offset);
-
-            if (this.position.x < 0)
-                this.position.x += crc2.canvas.width;
-            if (this.position.x > crc2.canvas.width)
-                this.position.x -= crc2.canvas.width;
         }
     }
 }

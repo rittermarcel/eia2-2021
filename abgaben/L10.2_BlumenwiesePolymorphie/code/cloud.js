@@ -1,14 +1,18 @@
 "use strict";
 var BlumenwiesePolymorphie;
 (function (BlumenwiesePolymorphie) {
-    class Cloud {
-        constructor() {
-            this.position = new BlumenwiesePolymorphie.Vector(BlumenwiesePolymorphie.crc2.canvas.width, 90);
+    class Cloud extends BlumenwiesePolymorphie.Moveable {
+        constructor(_position) {
+            super(_position);
+            if (_position)
+                this.position = _position;
+            else
+                this.position = new BlumenwiesePolymorphie.Vector(BlumenwiesePolymorphie.crc2.canvas.width, 90);
             this.velocity = new BlumenwiesePolymorphie.Vector(0, 0);
             this.velocity.random(200, 90);
             this.size = new BlumenwiesePolymorphie.Vector(100, 50);
         }
-        drawCloud() {
+        draw() {
             let particles = 20;
             let radiusParticle = 50;
             let particle = new Path2D();
@@ -28,15 +32,6 @@ var BlumenwiesePolymorphie;
                 BlumenwiesePolymorphie.crc2.restore();
             }
             BlumenwiesePolymorphie.crc2.restore();
-        }
-        move(_timeslice) {
-            let offset = new BlumenwiesePolymorphie.Vector(this.velocity.x, 90);
-            offset.scale(_timeslice);
-            this.position.add(offset);
-            if (this.position.x < 0)
-                this.position.x += BlumenwiesePolymorphie.crc2.canvas.width;
-            if (this.position.x > BlumenwiesePolymorphie.crc2.canvas.width)
-                this.position.x -= BlumenwiesePolymorphie.crc2.canvas.width;
         }
     }
     BlumenwiesePolymorphie.Cloud = Cloud;
