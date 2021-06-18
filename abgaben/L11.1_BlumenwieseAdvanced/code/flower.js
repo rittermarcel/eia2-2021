@@ -1,6 +1,7 @@
 "use strict";
 var BlumenwieseAdvanced;
 (function (BlumenwieseAdvanced) {
+    BlumenwieseAdvanced.nectarPosition = 0;
     class Flower extends BlumenwieseAdvanced.FlowerClass {
         constructor(_color) {
             super();
@@ -9,6 +10,7 @@ var BlumenwieseAdvanced;
         draw() {
             let yPosition = 520;
             let x = (Math.random() * BlumenwieseAdvanced.crc2.canvas.width) + 30;
+            this.position = new BlumenwieseAdvanced.Vector(x, yPosition);
             BlumenwieseAdvanced.crc2.save();
             let y = -(Math.random() * 15 + 5);
             BlumenwieseAdvanced.crc2.beginPath();
@@ -21,6 +23,7 @@ var BlumenwieseAdvanced;
             BlumenwieseAdvanced.crc2.closePath();
             BlumenwieseAdvanced.crc2.fill();
             BlumenwieseAdvanced.crc2.restore();
+            this.nectar();
         }
     }
     BlumenwieseAdvanced.Flower = Flower;

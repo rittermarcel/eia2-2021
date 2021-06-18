@@ -1,6 +1,6 @@
 namespace BlumenwieseAdvanced {
     export class Cloud extends Moveable {
-        size: Vector;
+        private size: Vector;
 
         constructor(_position?: Vector) {
             super(_position);

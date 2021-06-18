@@ -3,6 +3,7 @@ var BlumenwieseAdvanced;
 (function (BlumenwieseAdvanced) {
     window.addEventListener("load", handleLoad);
     let moveables = [];
+    let nectar = [];
     let imgData;
     function handleLoad(_event) {
         console.log("start");
@@ -41,12 +42,14 @@ var BlumenwieseAdvanced;
         for (let i = 0; i < anzahlFlower; i++) {
             let flower = new BlumenwieseAdvanced.Flower("purple");
             flower.draw();
+            nectar.push(flower);
         }
     }
     function createFlower2(anzahlFlower) {
         for (let i = 0; i < anzahlFlower; i++) {
             let flower1 = new BlumenwieseAdvanced.Flower1("yellow");
             flower1.draw();
+            nectar.push(flower1);
         }
     }
     function createClouds(anzahlClouds) {
@@ -61,6 +64,18 @@ var BlumenwieseAdvanced;
         for (let moveable of moveables) {
             moveable.move(1 / 100);
             moveable.draw();
+        }
+        for (let n of nectar) {
+            let randomNumber = (Math.random() * 0.002);
+            console.log(randomNumber);
+            if (BlumenwieseAdvanced.nectarPosition <= 23) {
+                BlumenwieseAdvanced.nectarPosition += randomNumber;
+                n.nectarFill();
+            }
+            else {
+                BlumenwieseAdvanced.nectarPosition = 23;
+                n.nectarFill();
+            }
         }
     }
 })(BlumenwieseAdvanced || (BlumenwieseAdvanced = {}));

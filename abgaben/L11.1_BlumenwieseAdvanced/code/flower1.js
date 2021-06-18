@@ -8,7 +8,8 @@ var BlumenwieseAdvanced;
         }
         draw() {
             let x = (Math.random() * BlumenwieseAdvanced.crc2.canvas.width) + 30;
-            let yPosition = 470;
+            let yPosition = 440;
+            this.position = new BlumenwieseAdvanced.Vector(x, yPosition);
             let y = -(Math.random() * 30) + 5;
             BlumenwieseAdvanced.crc2.save();
             BlumenwieseAdvanced.crc2.beginPath();
@@ -27,6 +28,7 @@ var BlumenwieseAdvanced;
             BlumenwieseAdvanced.crc2.fillStyle = this.color;
             BlumenwieseAdvanced.crc2.fill();
             BlumenwieseAdvanced.crc2.restore();
+            this.nectar();
         }
     }
     BlumenwieseAdvanced.Flower1 = Flower1;

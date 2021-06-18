@@ -1,10 +1,10 @@
 namespace BlumenwieseAdvanced {
     export class Mountains {
-        position: Vector;
-        min: number;
-        max: number;
-        colorLow: string;
-        colorHigh: string;
+        private position: Vector;
+        private min: number;
+        private max: number;
+        private colorLow: string;
+        private colorHigh: string;
         constructor(_position: Vector, _min: number, _max: number, _colorLow: string, _colorHigh: string) {
             this.position = _position;
             this.min = _min;

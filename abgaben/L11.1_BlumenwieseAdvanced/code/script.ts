@@ -4,6 +4,7 @@ namespace BlumenwieseAdvanced {
 
     export let crc2: CanvasRenderingContext2D;
     let moveables: Moveable[] = [];
+    let nectar: Flower[] = [];
     let imgData: any;
     function handleLoad(_event: Event): void {
         console.log("start");
@@ -45,12 +46,14 @@ namespace BlumenwieseAdvanced {
         for (let i: number = 0; i < anzahlFlower; i++) {
             let flower: Flower = new Flower("purple");
             flower.draw();
+            nectar.push(flower);
         }
     }
     function createFlower2(anzahlFlower: number): void {
         for (let i: number = 0; i < anzahlFlower; i++) {
             let flower1: Flower1 = new Flower1("yellow");
             flower1.draw();
+            nectar.push(flower1);
         }
     }
     function createClouds(anzahlClouds: number): void {
@@ -67,6 +70,18 @@ namespace BlumenwieseAdvanced {
         for (let moveable of moveables) {
             moveable.move(1 / 100);
             moveable.draw();
+        } 
+        for (let n of nectar) {
+            let randomNumber: number = (Math.random() * 0.002);
+            console.log(randomNumber);
+            if (nectarPosition <= 23) {
+            nectarPosition += randomNumber;
+            n.nectarFill();
+            } else {
+                nectarPosition = 23;
+                n.nectarFill();
+             
+            }
         } 
     }
 }

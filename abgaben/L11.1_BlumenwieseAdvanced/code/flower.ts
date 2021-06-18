@@ -1,8 +1,11 @@
 namespace BlumenwieseAdvanced {
+    export let nectarPosition: number = 0;
     export class Flower extends FlowerClass {
+        
         constructor(_color: string | CanvasGradient | CanvasPattern) {
             super();
             this.color = _color;
+            
 
         }
 
@@ -10,6 +13,7 @@ namespace BlumenwieseAdvanced {
         public draw(): void {
             let yPosition: number = 520;
             let x: number = (Math.random() * crc2.canvas.width) + 30;
+            this.position = new Vector(x, yPosition);
             crc2.save();
 
             let y: number = -(Math.random() * 15 + 5);
@@ -26,11 +30,12 @@ namespace BlumenwieseAdvanced {
 
             crc2.closePath();
             crc2.fill();
-
+            
             crc2.restore();
+            this.nectar();
 
         }
-    
+        
           
     }
    
