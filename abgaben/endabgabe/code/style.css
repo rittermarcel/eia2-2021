@@ -1,0 +1,101 @@
+html {
+    background-image: url("bilder/background.jpg");
+    background-size: cover;
+}
+
+#stadionBild {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 1;
+    width: 100vw;
+    height: 100vh;
+}
+
+canvas {
+    position: relative;
+    margin-top: 10px;
+    z-index: 2;
+    margin-bottom: 200px;
+    background: green;
+    border-radius: 5%;
+    border-style: solid;
+    border-color: white;
+
+}
+.spielstand {
+    position: relative;
+    margin-top: 5%;
+    height:100px;
+    width: 200px;
+  z-index: 3;
+  background-color: white;
+  border-style: solid;
+}
+.spielstand b {
+    text-align: center;
+    position: relative;
+    margin-left: 25px;
+    font-size: 80px;
+    top:-35px;
+}
+.spielstandText {
+    position: relative;
+    top:-12px;
+    text-align: center;
+}
+.flex {
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+}
+.formular {
+    position: relative;
+    margin-top:20px;
+    top: 0px;
+    width: 520px;
+  z-index: 4;
+  background-color: white;
+  border-style: solid;
+  text-align: center;
+}
+.formular p {
+    text-align: center;
+}
+.infos {
+    position: relative;
+    right:100px;   
+    margin-top: 5%;
+    height:100px;
+    width: 200px;
+  z-index: 3;
+  background-color: white;
+  border-style: solid;
+}
+.infos p {
+    position: relative;
+    top:-12px;
+    text-align: center;
+}
+.spieleroptionen {
+    position: relative;
+    left:100px;
+    margin-top: 5%;
+    width: 200px;
+  z-index: 3;
+  background-color: white;
+  border-style: solid;
+}
+.spieleroptionen p {
+    position: relative;
+    top:-12px;
+    text-align: center;
+}
+.spieleroptionen button{
+    margin-bottom: 20px;
+}
+.hinweis {
+    position: relative;
+    font-size: 12px;
+    top:0px;
+}

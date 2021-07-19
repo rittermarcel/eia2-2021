@@ -1,0 +1,25 @@
+button {
+    width:300px;
+    height:100px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    background-color:white;
+    cursor: pointer;
+    border: 3px solid black;
+}
+
+html {
+    background: url(dateien/startseite.jpg);
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.center {
+margin: 0;
+position: absolute;
+top: 50%;
+left: 50%;
+-ms-transform: translate(-50%, -50%);
+transform: translate(-50%, -50%);
+}
